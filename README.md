@@ -14,8 +14,10 @@ This script is will perform a PHP7.2 setup on any Ubuntu server. Tested in Ubunt
 
 Assumes `cert.key` and `cert.pem` ssl files are available in `/config/ssl` directory
 
-1. Follow digital oceans initial server setup at https://www.digitalocean.com/community/tutorials/automating-initial-server-setup-with-ubuntu-18-04
-2. Copy the files using rsync `rsync -aP ./ user@IP_ADDRESS:~/`
-3. Run the scripts one after the other `bash step2.sh` and `sudo bash step3.sh`
+This follow Digital oceans initial server setup at https://www.digitalocean.com/community/tutorials/automating-initial-server-setup-with-ubuntu-18-04
 
-**NB:** If you followed step 1, skip `step1.sh` 
+Copy script to your new server
+
+```
+bash setup.sh
+```
