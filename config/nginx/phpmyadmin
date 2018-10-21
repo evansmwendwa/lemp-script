@@ -1,0 +1,44 @@
+server {
+  root /home/scikit/apps/phpmyadmin;
+
+  index index.html;
+
+  charset utf-8;
+
+  server_name phpmyadmin.scikit.im;
+
+  listen  443;
+  ssl     on;
+  ssl_certificate         /home/scikit/config/ssl/cert.pem;
+  ssl_certificate_key     /home/scikit/config/ssl//cert.key;
+
+  location / {
+  	try_files $uri $uri/ /index.php?$query_string;
+  }
+
+  location ~ \.php$ {
+    include snippets/fastcgi-php.conf;
+    fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+    fastcgi_param DOCUMENT_ROOT $realpath_root;
+    fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+  }
+
+  location = /favicon.ico { access_log off; log_not_found off; }
+  location = /robots.txt  { access_log off; log_not_found off; }
+
+  access_log off;
+
+  error_log  /home/scikit/config/logs/phpmyadmin.scikit.im.log error;
+
+  error_page 404 /index.php;
+
+
+  location ~ /\.ht {
+  	deny all;
+  }
+
+  location ~ /.well-known {
+    allow all;
+  }
+
+}

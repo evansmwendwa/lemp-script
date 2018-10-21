@@ -1,0 +1,4 @@
+cert.key
+cert.pem
+.env
+.DS_Store
