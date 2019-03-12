@@ -5,12 +5,12 @@ server {
 
   charset utf-8;
 
-  server_name phpmyadmin.scikit.im;
+  server_name phpmyadmin.haiyatv.com;
 
   listen  443;
   ssl     on;
   ssl_certificate         /home/scikit/config/ssl/cert.pem;
-  ssl_certificate_key     /home/scikit/config/ssl//cert.key;
+  ssl_certificate_key     /home/scikit/config/ssl/cert.key;
 
   location / {
   	try_files $uri $uri/ /index.php?$query_string;
@@ -28,7 +28,7 @@ server {
 
   access_log off;
 
-  error_log  /home/scikit/config/logs/phpmyadmin.scikit.im.log error;
+  error_log  /home/scikit/config/logs/phpmyadmin.haiyatv.com.log error;
 
   error_page 404 /index.php;
 
