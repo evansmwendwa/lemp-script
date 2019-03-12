@@ -85,7 +85,7 @@ apt install php-fpm php7.2-cli php-mysql php-pear php7.2-bcmath php7.2-gd php7.2
 ufw allow 'Nginx Full'
 ufw allow OpenSSH
 ufw status
-sufw --force enable
+ufw --force enable
 ###############################################
 
 
@@ -95,6 +95,7 @@ curl -L https://storage.googleapis.com/scikit-downloads/server-setup.zip -o /hom
 unzip /home/scikit/server-setup.zip -d /home/scikit/
 
 ############### Adjust Nginx configs for local user ###############
+rm -rf /etc/nginx/sites-enabled
 ln -nfs /home/scikit/config/nginx /etc/nginx/sites-enabled
 
 
